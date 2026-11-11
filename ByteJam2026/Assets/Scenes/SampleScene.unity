@@ -202,8 +202,8 @@ MonoBehaviour:
   PlayerCamera: {fileID: 330585546}
   Controller: {fileID: 248664589}
   Player: {fileID: 248664587}
-  Speed: 10
-  JumpForce: 2
+  Speed: 15
+  JumpForce: 10
   Sensetivity: 0
   Gravity: 9.81
   Sneak: 0
