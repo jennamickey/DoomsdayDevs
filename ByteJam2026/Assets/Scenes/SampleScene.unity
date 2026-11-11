@@ -371,7 +371,7 @@ MonoBehaviour:
   playerCamera: {fileID: 330585545}
   bobbingSpeed: 0.18
   bobbingAmount: 0.2
-  midpoint: 8
+  midpoint: 5
   baseFOV: 60
   sprintFOV: 70
   fovChangeSpeed: 5
