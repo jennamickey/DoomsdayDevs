@@ -34,7 +34,7 @@ public class FirstPersonCamera : MonoBehaviour
     public float bobbingAmount = 0.2f;
 
     [Tooltip("Midpoint of head bobbing on the y-axis.")]
-    public float midpoint = 2f;
+    public float midpoint = 0f;
 
     [Header("Field of View Settings")]
     [Tooltip("Normal field of view.")]
