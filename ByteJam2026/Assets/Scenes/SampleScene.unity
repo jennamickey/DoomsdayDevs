@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonCamera
   mouseSensitivity: 100
-  playerBody: {fileID: 993667283}
+  playerBody: {fileID: 248664587}
   playerCamera: {fileID: 330585545}
   bobbingSpeed: 0.18
   bobbingAmount: 0.2
@@ -691,30 +691,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &993667287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993667282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70d2bc04a4b3aa94699a9cd423065f23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FirstPersonCamera
-  mouseSensitivity: 100
-  playerBody: {fileID: 993667283}
-  playerCamera: {fileID: 330585545}
-  bobbingSpeed: 0.18
-  bobbingAmount: 0.2
-  midpoint: 2
-  baseFOV: 60
-  sprintFOV: 70
-  fovChangeSpeed: 5
-  isSprinting: 0
-  swayAmount: 0.05
-  swaySpeed: 4
 --- !u!1001 &1185993492
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -767,6 +743,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: characterMedium
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2514d30fce52a401db3e146139694f7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -777,9 +757,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2514d30fce52a401db3e146139694f7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 993667286}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2514d30fce52a401db3e146139694f7b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 993667287}
   m_SourcePrefab: {fileID: 100100000, guid: 2514d30fce52a401db3e146139694f7b, type: 3}
 --- !u!1 &1929813695 stripped
 GameObject:
