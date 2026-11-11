@@ -1,95 +1,108 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour {
-    [SerializeField]
-    private float movementSpeed = 5f;
-    private CharacterController controller;
-    private Animator animator;
+public class PlayerMovement : MonoBehaviour
+{
+    private Vector3 Velocity;
+    private Vector3 PlayerMovementInput;
+    private Vector2 PlayerMouseInput;
+    private bool Sneaking = false;
+    private float xRotation;
 
-    [SerializeField]
-    private Transform cameraTransform;
+    [Header("Components Needed")]
+    [SerializeField] private Transform PlayerCamera;
+    [SerializeField] private CharacterController Controller;
+    [SerializeField] private Transform Player;
+    [Space]
+    [Header("Movement")]
+    [SerializeField] private float Speed;
+    [SerializeField] private float JumpForce;
+    [SerializeField] private float Sensetivity;
+    [SerializeField] private float Gravity = 9.81f;
+    [Space]
+    [Header("Sneaking")]
+    [SerializeField] private bool Sneak = false;
+    [SerializeField] private float SneakSpeed;
 
-    [SerializeField]
-    private float jumpHeight = 2f;
-    [SerializeField]
-    private float gravity = -9.81f;
-    private float verticalVelocity;
-
-    private void Awake() {
-        controller = GetComponent <CharacterController >();
-        animator = GetComponentInChildren<Animator>();
+    void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked; 
     }
 
-    private void Update(){
-        float verticalInput = 0f;
-        float horizontalInput = 0f;
-        if (Keyboard.current.wKey.isPressed)
-        {
-            verticalInput = 1f;
-        }
-        else if (Keyboard.current.sKey.isPressed)
-        {
-            verticalInput = -1f;
-        }
+    void Update()
+    {
+        float horizontal = 0f;
+        float vertical = 0f;
 
         if (Keyboard.current.aKey.isPressed)
         {
-            horizontalInput = -1f;
+            horizontal = -1f;
         }
         else if (Keyboard.current.dKey.isPressed)
         {
-            horizontalInput = 1f;
+            horizontal = 1f;
         }
 
-        Vector3 cameraForward = cameraTransform.forward;
-        cameraForward.y = 0f;
-        cameraForward.Normalize();
-
-        Vector3 cameraRight = cameraTransform.right;
-        cameraRight.y = 0f;
-        cameraRight.Normalize();
-
-        Vector3 movement =
-            cameraForward * verticalInput +
-            cameraRight * horizontalInput;
-
-        if (movement.sqrMagnitude > 1f)
+        if (Keyboard.current.wKey.isPressed)
         {
-            movement.Normalize();
+            vertical = 1f;
         }
-
-        if (movement != Vector3.zero)
+        else if (Keyboard.current.sKey.isPressed)
         {
-            transform.forward = movement;
+            vertical = -1f;
         }
 
-        movement.x *= movementSpeed;
-        movement.z *= movementSpeed;
+        PlayerMovementInput = new Vector3(horizontal, 0f, vertical);
+        PlayerMouseInput = Mouse.current.delta.ReadValue();
+        MovePlayer();
+        MoveCamera();
 
-        if (controller.isGrounded && verticalVelocity < 0f)
+        if (Keyboard.current.rightShiftKey.isPressed && Sneak)
         {
-            verticalVelocity = -2f;
+            Player.localScale = new Vector3(1f, 0.5f, 1f);
+            Sneaking = true;
         }
-
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && controller.isGrounded)
+        if (Keyboard.current.rightShiftKey.wasReleasedThisFrame)
         {
-            verticalVelocity =
-                Mathf.Sqrt(jumpHeight * -2f * gravity);
+            Player.localScale = new Vector3(1f, 1f, 1f);
+            Sneaking = false;
         }
+    }
+    private void MovePlayer()
+    {
+        Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput);
 
-        verticalVelocity += gravity * Time.deltaTime;
-        movement.y = verticalVelocity;
-        controller.Move(movement * Time.deltaTime);
 
-        animator.SetBool(
-            "IsWalking",
-            horizontalInput != 0f || verticalInput != 0f
-        );
+        if (Controller.isGrounded)
+        {
+            Velocity.y = -1f;
 
-        animator.SetBool(
-            "IsJumping",
-            !controller.isGrounded
-        );
+            if (Keyboard.current.spaceKey.wasPressedThisFrame && Sneaking == false)
+            {
+                Velocity.y = JumpForce;
+            }
+        }
+        else
+        {
+            Velocity.y += Gravity * -2f * Time.deltaTime;
+        }
+        if (Sneaking)
+        {
+            Controller.Move(MoveVector * SneakSpeed * Time.deltaTime);
+        }
+        else
+        {
+            Controller.Move(MoveVector * Speed * Time.deltaTime);
+        }
+        Controller.Move(Velocity * Time.deltaTime);
+
+    }
+    private void MoveCamera()
+    {
+        xRotation -= PlayerMouseInput.y * Sensetivity;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        transform.Rotate(0f, PlayerMouseInput.x * Sensetivity, 0f);
+        PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 }
