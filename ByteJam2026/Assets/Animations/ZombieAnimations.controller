@@ -28,14 +28,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &5002587369594377876
+--- !u!1102 &4603039296112668647
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Zombie_Walk
+  m_Name: mixamo_com
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -48,7 +48,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 9199159565531482307, guid: aa9e51850a64ed3448d8ff9cd8403daf, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: 0aa145166dcfb204cb1181bd050b0432, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -64,8 +64,8 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 5002587369594377876}
-    m_Position: {x: 380, y: 140, z: 0}
+    m_State: {fileID: 4603039296112668647}
+    m_Position: {x: 350, y: 110, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -75,4 +75,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 5002587369594377876}
+  m_DefaultState: {fileID: 4603039296112668647}
