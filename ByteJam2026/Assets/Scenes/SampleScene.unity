@@ -5546,6 +5546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   Health: 100
+  healthText: {fileID: 1795843232}
 --- !u!1001 &248793516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12569,7 +12570,7 @@ MonoBehaviour:
   safeDistance: 8
   attackDistance: 1.5
   animator: {fileID: 746936976}
-  attackDamage: 10
+  attackDamage: 25
   attackCooldown: 1
 --- !u!95 &746936976 stripped
 Animator:
