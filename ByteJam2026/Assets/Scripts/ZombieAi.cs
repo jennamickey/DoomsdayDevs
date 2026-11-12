@@ -13,6 +13,7 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float detectionDistance = 5f;
     [SerializeField] private float safeDistance = 8f;
+    [SerializeField] private float attackDistance = 1.5f;
 
     [Header("References")]
     [SerializeField] private Animator animator;
@@ -27,13 +28,41 @@ public class ZombieAI : MonoBehaviour
 
     private void Update()
     {
-        if (agent.isActiveAndEnabled && agent.isOnNavMesh)
+        if (!agent.isActiveAndEnabled || !agent.isOnNavMesh)
         {
-            agent.SetDestination(player.position);
+            return;
+        }
+
+        float distance = Vector3.Distance(
+            transform.position,
+            player.position
+        );
+
+        if (distance <= attackDistance)
+        {
+            Attack();
         }
         else
         {
-            Debug.LogWarning("Enemy is not on a NavMesh.");
+            Chase();
         }
+    }
+
+    private void Chase()
+    {
+        agent.isStopped = false;
+        agent.speed = runSpeed;
+        agent.SetDestination(player.position);
+
+        animator.SetBool("IsRunning", true);
+        animator.SetBool("IsAttacking", false);
+    }
+
+    private void Attack()
+    {
+        agent.isStopped = true;
+
+        animator.SetBool("IsRunning", false);
+        animator.SetBool("IsAttacking", true);
     }
 }
