@@ -80,7 +80,7 @@ private float nextAttackTime;
             {
                 if (Time.time >= nextAttackTime)
                 {
-                    PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+                    PlayerHealth playerHealth = other.GetComponentInParent<PlayerHealth>();
 
                     if (playerHealth != null)
                     {
