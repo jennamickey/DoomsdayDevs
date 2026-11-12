@@ -18,6 +18,12 @@ public class ZombieAI : MonoBehaviour
     [Header("References")]
     [SerializeField] private Animator animator;
 
+    [Header("Attack")]
+    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float attackCooldown = 1f;
+
+private float nextAttackTime;
+
     private Vector3 moveDirection;
     private float stateTimer;
     private UnityEngine.AI.NavMeshAgent agent;
@@ -64,5 +70,25 @@ public class ZombieAI : MonoBehaviour
 
         animator.SetBool("IsRunning", false);
         animator.SetBool("IsAttacking", true);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (animator.GetBool("IsAttacking"))
+            {
+                if (Time.time >= nextAttackTime)
+                {
+                    PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+
+                    if (playerHealth != null)
+                    {
+                        playerHealth.TakeDamage(attackDamage);
+                        nextAttackTime = Time.time + attackCooldown;
+                    }
+                }
+            }
+        }
     }
 }
