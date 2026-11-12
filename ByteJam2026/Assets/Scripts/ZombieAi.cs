@@ -19,7 +19,7 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private Animator animator;
 
     [Header("Attack")]
-    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float attackDamage = 100f;
     [SerializeField] private float attackCooldown = 1f;
 
 private float nextAttackTime;
