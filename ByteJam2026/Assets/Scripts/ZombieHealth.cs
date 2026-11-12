@@ -22,7 +22,7 @@ public class ZombieHealth : MonoBehaviour
 
     void Die()
     {
-        GameManager.Instance.AddPoints(maxHealth);
+        //GameManager.Instance.AddPoints(maxHealth);
         Destroy(gameObject);
     }
 }
