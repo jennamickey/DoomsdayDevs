@@ -67,6 +67,11 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player Has Died");
 
+        if (HighScoreManager.Instance != null)
+        {
+            HighScoreManager.Instance.SaveHighScore();
+        }
+
         if (deathScreenUI != null)
         {
             deathScreenUI.SetActive(true);
@@ -80,6 +85,12 @@ public class PlayerHealth : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+
+        if (HighScoreManager.Instance != null)
+        {
+            HighScoreManager.Instance.ResetCurrentGame();
+        }
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

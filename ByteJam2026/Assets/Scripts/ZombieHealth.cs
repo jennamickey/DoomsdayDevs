@@ -41,6 +41,11 @@ public class ZombieHealth : MonoBehaviour
         {
             GameManager.Instance.AddPoints(maxHealth);
         }
+        if (HighScoreManager.Instance != null)
+        {
+            HighScoreManager.Instance.ZombieKilled();
+            HighScoreManager.Instance.AddPoints(maxHealth);
+        }
         if (roundController != null)
         {
             roundController.OnZombieDied();

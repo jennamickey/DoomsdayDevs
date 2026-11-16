@@ -45,6 +45,11 @@ public class RoundController : MonoBehaviour
     {
 
         currentRound++;
+        if (HighScoreManager.Instance != null)
+        {
+            HighScoreManager.Instance.UpdateRound(currentRound);
+        }
+        
         waitingForNextRound = false;
         bool spawnBoss = currentRound % 10 == 0;
         zombiesAlive = 0;
