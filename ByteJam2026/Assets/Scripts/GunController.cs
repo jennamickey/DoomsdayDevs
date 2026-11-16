@@ -18,9 +18,9 @@ public class GunController : MonoBehaviour
     public TMP_Text ammoText;
 
     [Header("Aiming")]
-    [SerializeField] private Camera fpsCam;
     [SerializeField] private LayerMask hitLayers = Physics.DefaultRaycastLayers;
-
+    
+    public Camera fpsCam;
     private int currentAmmo;
     private float nextFireTime = 0f;
     private bool isReloading = false;
