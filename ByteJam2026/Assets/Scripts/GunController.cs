@@ -16,10 +16,13 @@ public class GunController : MonoBehaviour
     [Header("UI Reference")]
     public TMP_Text ammoText;
 
+    [Header("Aiming")]
+    [SerializeField] private Camera fpsCam;
+    [SerializeField] private LayerMask hitLayers = Physics.DefaultRaycastLayers;
+
     private int currentAmmo;
     private float nextFireTime = 0f;
     private bool isReloading = false;
-    private Camera fpsCam;
 
     void Awake()
     {
@@ -34,7 +37,8 @@ public class GunController : MonoBehaviour
 
     void Start()
     {
-        fpsCam = Camera.main;
+        if (fpsCam == null) fpsCam = GetComponentInParent<Camera>();
+        if (fpsCam == null) fpsCam = Camera.main;
         if (fpsCam == null)
         {
             fpsCam = FindObjectOfType<Camera>();
@@ -44,11 +48,11 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current == null || Keyboard.current == null) return;
+        if (Mouse.current == null) return;
 
         if (isReloading) return;
 
-        if (Keyboard.current.rKey.wasPressedThisFrame && currentAmmo < maxAmmo && reserveAmmo > 0)
+        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame && currentAmmo < maxAmmo && reserveAmmo > 0)
         {
             StartCoroutine(Reload());
             return;
@@ -76,19 +80,31 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
+        if (fpsCam == null)
+        {
+            Debug.LogError("Assign the player's camera to the gun's Aiming reference.", this);
+            return;
+        }
+
         currentAmmo--;
         UpdateAmmoUI();
 
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        // Zombie hitboxes in this scene are triggers. Keep those hittable while
+        // skipping unrelated trigger volumes and the player's own colliders.
+        RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity, hitLayers, QueryTriggerInteraction.Collide);
+        System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+        Transform playerRoot = fpsCam.transform.root;
+        foreach (RaycastHit hit in hits)
         {
-            ZombieHealth zombie = hit.collider.GetComponent<ZombieHealth>();
+            if (hit.collider.transform.IsChildOf(playerRoot)) continue;
+            ZombieHealth zombie = hit.collider.GetComponentInParent<ZombieHealth>();
+            if (hit.collider.isTrigger && zombie == null) continue;
             if (zombie != null)
             {
                 zombie.TakeDamage(damage);
             }
+            break;
         }
     }
 
@@ -110,6 +126,12 @@ public class GunController : MonoBehaviour
 
         isReloading = false;
         UpdateAmmoUI();
+    }
+
+    void OnDisable()
+    {
+        StopAllCoroutines();
+        isReloading = false;
     }
 
     void UpdateAmmoUI()

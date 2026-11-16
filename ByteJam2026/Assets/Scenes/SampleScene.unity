@@ -9820,6 +9820,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0df72c9c2af8394395030ade623be73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawner
+  zombieTypes: {fileID: 839326370}
+  crawlerSpawnWeight: 0.75
   zombiePrefab: {fileID: 1845634719}
   numberToSpawn: 2
   spawnTerrain: {fileID: 724739299}
@@ -15653,6 +15655,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 916639896}
+  - component: {fileID: 916639897}
   m_Layer: 0
   m_Name: ZombieSpawners
   m_TagString: Untagged
@@ -15660,6 +15663,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &916639897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916639895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7716961a84558cc409fd9f670778ed02, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::RoundController
+  zombieSpawner: {fileID: 477155518}
+  zombieSpawners:
+  - {fileID: 477155518}
+  - {fileID: 1604902899}
+  - {fileID: 1097941982}
+  timeBetweenRounds: 10
+  zombiesLeftText: {fileID: 1475166205}
 --- !u!4 &916639896
 Transform:
   m_ObjectHideFlags: 0
@@ -18441,6 +18463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0df72c9c2af8394395030ade623be73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawner
+  zombieTypes: {fileID: 839326370}
+  crawlerSpawnWeight: 0.75
   zombiePrefab: {fileID: 21529715}
   numberToSpawn: 2
   spawnTerrain: {fileID: 724739299}
@@ -26321,6 +26345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0df72c9c2af8394395030ade623be73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawner
+  zombieTypes: {fileID: 839326370}
+  crawlerSpawnWeight: 0.75
   zombiePrefab: {fileID: 746936972}
   numberToSpawn: 2
   spawnTerrain: {fileID: 724739299}
