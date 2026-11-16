@@ -25654,7 +25654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8892587793124513427, guid: 36cfec9d776fe44d292c837e83dfad8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.1
+      value: 3.08
       objectReference: {fileID: 0}
     - target: {fileID: 8892587793124513427, guid: 36cfec9d776fe44d292c837e83dfad8f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25723,7 +25723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WorldWeaponPickup
   weaponName: M4A1
-  price: 1500
+  price: 600
   equippableGunPrefab: {fileID: 8080304179456314409, guid: 36cfec9d776fe44d292c837e83dfad8f, type: 3}
   rotateDisplay: 0
   rotateSpeed: 45
