@@ -6,8 +6,11 @@ public class GunController : MonoBehaviour
     [Header("Gun Settings")]
     public int damage = 25;
     public int maxAmmo = 30;
-    private int currentAmmo;
+    public bool isAutomatic = false;
+    public float fireRate = 0.15f;
 
+    private int currentAmmo;
+    private float nextFireTime = 0f;
     private Camera fpsCam;
 
     void Start()
@@ -23,9 +26,15 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        // shoots when you left-click
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current == null) return;
+
+        bool wantsToShoot = isAutomatic 
+            ? Mouse.current.leftButton.isPressed 
+            : Mouse.current.leftButton.wasPressedThisFrame;
+
+        if (wantsToShoot && Time.time >= nextFireTime)
         {
+            nextFireTime = Time.time + fireRate;
             Shoot();
         }
     }
