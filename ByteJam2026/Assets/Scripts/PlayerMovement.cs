@@ -24,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool Sneak = false;
     [SerializeField] private float SneakSpeed;
 
+    [Header("Speed Boost")]
+    [SerializeField] private float speedMultiplier = 1.5f;
+    private bool speedBoostActive = false;
+    private float speedBoostTimer = 0f;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; 
@@ -67,6 +72,16 @@ public class PlayerMovement : MonoBehaviour
             Player.localScale = new Vector3(1f, 1f, 1f);
             Sneaking = false;
         }
+
+        if (speedBoostActive)
+        {
+            speedBoostTimer -= Time.deltaTime;
+
+            if (speedBoostTimer <= 0)
+            {
+                speedBoostActive = false;
+            }
+        }
     }
     private void MovePlayer()
     {
@@ -86,14 +101,24 @@ public class PlayerMovement : MonoBehaviour
         {
             Velocity.y += Gravity * -2f * Time.deltaTime;
         }
+        float currentSpeed = Speed;
+
+        if (speedBoostActive)
+        {
+            currentSpeed *= speedMultiplier;
+        }
+
         if (Sneaking)
         {
-            Controller.Move(MoveVector * SneakSpeed * Time.deltaTime);
+            currentSpeed = SneakSpeed;
+
+            if (speedBoostActive)
+            {
+                currentSpeed *= speedMultiplier;
+            }
         }
-        else
-        {
-            Controller.Move(MoveVector * Speed * Time.deltaTime);
-        }
+
+        Controller.Move(MoveVector * currentSpeed * Time.deltaTime);
         Controller.Move(Velocity * Time.deltaTime);
 
     }
@@ -104,5 +129,16 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Rotate(0f, PlayerMouseInput.x * Sensetivity, 0f);
         PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    }
+
+    public void ActivateSpeedBoost()
+    {
+        speedBoostActive = true;
+        speedBoostTimer = 60f;
+    }
+
+    public bool IsSpeedBoostActive()
+    {
+        return speedBoostActive;
     }
 }
