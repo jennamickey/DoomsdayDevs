@@ -36,4 +36,6 @@
   9. boxes for guns
   10. jenna - dealth screen
   11. mason - zombie count
+  12. resumes
+  13. maybe regenerate health over time
 
