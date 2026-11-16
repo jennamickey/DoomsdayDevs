@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class VendingMachine : MonoBehaviour, IInteractable
+public class VendingMachineHealth : MonoBehaviour, IInteractable
 {
     [Header("Vending Machine Settings")]
     [SerializeField] private string machineName = "Extra Health";
