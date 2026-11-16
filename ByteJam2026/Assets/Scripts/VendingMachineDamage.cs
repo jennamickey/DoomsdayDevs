@@ -8,11 +8,30 @@ public class VendingMachineDamage : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Attempting to purchase " + machineName);
-    }
+        if (GameManager.Instance == null) return;
 
+        if (GameManager.Instance.IsDoubleDamageActive())
+        {
+            Debug.Log("Double Damage Already Active!");
+            return;
+        }
+
+        if (GameManager.Instance.SpendPoints(price))
+        {
+            GameManager.Instance.ActivateDoubleDamage();
+
+            Debug.Log("Purchased " + machineName);
+        }
+    }
+    
     public string GetPrompt()
     {
+        if (GameManager.Instance != null &&
+            GameManager.Instance.IsDoubleDamageActive())
+        {
+            return "Double Damage Active";
+        }
+
         return "Press E to Buy " + machineName + " - " + price + " Points";
     }
 }

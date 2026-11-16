@@ -3,9 +3,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    
     [SerializeField] private float doublePointsDuration = 30f;
     private bool doublePointsActive = false;
     private float doublePointsTimer = 0f;
+
+    [SerializeField] private float doubleDamageDuration = 30f;
+    private bool doubleDamageActive = false;
+    private float doubleDamageTimer = 0f;
 
     public int score = 0;
 
@@ -31,6 +36,17 @@ public class GameManager : MonoBehaviour
             {
                 doublePointsActive = false;
                 Debug.Log("Double Points has ended!");
+            }
+        }
+
+        if (doubleDamageActive)
+        {
+            doubleDamageTimer -= Time.deltaTime;
+
+            if (doubleDamageTimer <= 0)
+            {
+                doubleDamageActive = false;
+                Debug.Log("Double Damage has ended!");
             }
         }
     }
@@ -71,5 +87,18 @@ public class GameManager : MonoBehaviour
     public bool IsDoublePointsActive()
     {
         return doublePointsActive;
+    }
+
+    public void ActivateDoubleDamage()
+    {
+        doubleDamageActive = true;
+        doubleDamageTimer = doubleDamageDuration;
+
+        Debug.Log("Double Damage Activated!");
+    }
+
+    public bool IsDoubleDamageActive()
+    {
+        return doubleDamageActive;
     }
 }

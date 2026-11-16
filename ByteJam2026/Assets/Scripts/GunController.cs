@@ -117,7 +117,15 @@ public class GunController : MonoBehaviour
 
             if (zombie != null)
             {
-                zombie.TakeDamage(damage);
+                int damageAmount = damage;
+
+                if (GameManager.Instance != null &&
+                    GameManager.Instance.IsDoubleDamageActive())
+                {
+                    damageAmount *= 2;
+                }
+
+                zombie.TakeDamage(damageAmount);
                 Debug.Log("Successfully damaged the zombie!");
             }
 
