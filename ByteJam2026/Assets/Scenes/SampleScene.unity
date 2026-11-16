@@ -5304,7 +5304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 16.17584
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5341,6 +5341,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_Name
       value: Zombie Male Crawler
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
       propertyPath: m_Controller
@@ -18751,7 +18755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0879202
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18788,6 +18792,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
       propertyPath: m_Name
       value: Zombie Behemoth Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
       propertyPath: m_Controller
@@ -33769,7 +33777,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.0879202
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33806,6 +33814,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_Name
       value: Zombie Male
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
       propertyPath: m_Controller
