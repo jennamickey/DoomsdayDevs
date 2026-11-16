@@ -5823,7 +5823,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 4}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &245492148
 PrefabInstance:
@@ -11913,7 +11913,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 4}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &641600265
 MonoBehaviour:
@@ -15688,7 +15688,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 4}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &916639895
 GameObject:
@@ -24913,7 +24913,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 4}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1521727553
 GameObject:
@@ -25916,7 +25916,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 4}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1580098136 stripped
 Transform:
@@ -29663,7 +29663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4219693122048088511, guid: fb5a30b39fca242e5a3536991a9531ea, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.42
+      value: 3.082
       objectReference: {fileID: 0}
     - target: {fileID: 4219693122048088511, guid: fb5a30b39fca242e5a3536991a9531ea, type: 3}
       propertyPath: m_LocalPosition.z
@@ -29755,7 +29755,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 2, z: 4}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1855065872
 PrefabInstance:
