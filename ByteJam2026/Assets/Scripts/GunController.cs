@@ -9,6 +9,7 @@ public class GunController : MonoBehaviour
     public int damage = 25;
     public int maxAmmo = 30;
     public int reserveAmmo = 120;
+    public int maxReserveAmmo = 120;
     public float reloadTime = 1.5f;
     public bool isAutomatic = false;
     public float fireRate = 0.15f;
@@ -43,6 +44,7 @@ public class GunController : MonoBehaviour
         {
             fpsCam = FindObjectOfType<Camera>();
         }
+
         UpdateAmmoUI();
     }
 
@@ -52,7 +54,10 @@ public class GunController : MonoBehaviour
 
         if (isReloading) return;
 
-        if (Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame && currentAmmo < maxAmmo && reserveAmmo > 0)
+        if (Keyboard.current != null &&
+            Keyboard.current.rKey.wasPressedThisFrame &&
+            currentAmmo < maxAmmo &&
+            reserveAmmo > 0)
         {
             StartCoroutine(Reload());
             return;
@@ -90,20 +95,32 @@ public class GunController : MonoBehaviour
         UpdateAmmoUI();
 
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
-        // Zombie hitboxes in this scene are triggers. Keep those hittable while
-        // skipping unrelated trigger volumes and the player's own colliders.
-        RaycastHit[] hits = Physics.RaycastAll(ray, Mathf.Infinity, hitLayers, QueryTriggerInteraction.Collide);
+
+        RaycastHit[] hits = Physics.RaycastAll(
+            ray,
+            Mathf.Infinity,
+            hitLayers,
+            QueryTriggerInteraction.Collide
+        );
+
         System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
         Transform playerRoot = fpsCam.transform.root;
+
         foreach (RaycastHit hit in hits)
         {
             if (hit.collider.transform.IsChildOf(playerRoot)) continue;
+
             ZombieHealth zombie = hit.collider.GetComponentInParent<ZombieHealth>();
+
             if (hit.collider.isTrigger && zombie == null) continue;
+
             if (zombie != null)
             {
                 zombie.TakeDamage(damage);
+                Debug.Log("Successfully damaged the zombie!");
             }
+
             break;
         }
     }
@@ -111,6 +128,7 @@ public class GunController : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
+
         if (ammoText != null)
         {
             ammoText.text = "Reloading...";
@@ -125,6 +143,14 @@ public class GunController : MonoBehaviour
         reserveAmmo -= ammoToLoad;
 
         isReloading = false;
+        UpdateAmmoUI();
+    }
+
+    public void RefillAmmo()
+    {
+        currentAmmo = maxAmmo;
+        reserveAmmo = maxReserveAmmo;
+
         UpdateAmmoUI();
     }
 
