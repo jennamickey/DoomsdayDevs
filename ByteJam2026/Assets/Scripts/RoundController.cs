@@ -49,6 +49,8 @@ public class RoundController : MonoBehaviour
         {
             HighScoreManager.Instance.UpdateRound(currentRound);
         }
+
+        SoundManager.Instance.PlayZombieSounds(); 
         
         waitingForNextRound = false;
         bool spawnBoss = currentRound % 10 == 0;
@@ -121,6 +123,5 @@ public class RoundController : MonoBehaviour
 
         zombiesCount += 10;
         StartRound();
-        SoundManager.Instance.PlayZombieSounds(); 
     }
 }

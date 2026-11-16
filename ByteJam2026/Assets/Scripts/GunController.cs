@@ -92,6 +92,7 @@ public class GunController : MonoBehaviour
         }
 
         currentAmmo--;
+        SoundManager.Instance.PlayGunshot();
         UpdateAmmoUI();
 
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
