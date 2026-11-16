@@ -1,35 +1,70 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class GunController : MonoBehaviour
 {
     [Header("Gun Settings")]
     public int damage = 25;
     public int maxAmmo = 30;
+    public int reserveAmmo = 120;
+    public float reloadTime = 1.5f;
     public bool isAutomatic = false;
     public float fireRate = 0.15f;
 
+    [Header("UI Reference")]
+    public TMP_Text ammoText;
+
     private int currentAmmo;
     private float nextFireTime = 0f;
+    private bool isReloading = false;
     private Camera fpsCam;
+
+    void Awake()
+    {
+        currentAmmo = maxAmmo;
+    }
+
+    void OnEnable()
+    {
+        isReloading = false;
+        UpdateAmmoUI();
+    }
 
     void Start()
     {
-        currentAmmo = maxAmmo;
-
-        fpsCam = Camera.main; // should find the main camera
+        fpsCam = Camera.main;
         if (fpsCam == null)
         {
             fpsCam = FindObjectOfType<Camera>();
         }
+        UpdateAmmoUI();
     }
 
     void Update()
     {
-        if (Mouse.current == null) return;
+        if (Mouse.current == null || Keyboard.current == null) return;
 
-        bool wantsToShoot = isAutomatic 
-            ? Mouse.current.leftButton.isPressed 
+        if (isReloading) return;
+
+        if (Keyboard.current.rKey.wasPressedThisFrame && currentAmmo < maxAmmo && reserveAmmo > 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
+        if (currentAmmo <= 0)
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame && reserveAmmo > 0)
+            {
+                StartCoroutine(Reload());
+            }
+            return;
+        }
+
+        bool wantsToShoot = isAutomatic
+            ? Mouse.current.leftButton.isPressed
             : Mouse.current.leftButton.wasPressedThisFrame;
 
         if (wantsToShoot && Time.time >= nextFireTime)
@@ -41,23 +76,47 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
+        currentAmmo--;
+        UpdateAmmoUI();
+
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            Debug.Log("Hit object: " + hit.collider.name);
-
             ZombieHealth zombie = hit.collider.GetComponent<ZombieHealth>();
             if (zombie != null)
             {
                 zombie.TakeDamage(damage);
-                Debug.Log("Successfully damaged the zombie!");
             }
         }
-        else
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        if (ammoText != null)
         {
-            Debug.Log("Raycast hit nothing (shot into the air).");
+            ammoText.text = "Reloading...";
+        }
+
+        yield return new WaitForSeconds(reloadTime);
+
+        int ammoNeeded = maxAmmo - currentAmmo;
+        int ammoToLoad = Mathf.Min(ammoNeeded, reserveAmmo);
+
+        currentAmmo += ammoToLoad;
+        reserveAmmo -= ammoToLoad;
+
+        isReloading = false;
+        UpdateAmmoUI();
+    }
+
+    void UpdateAmmoUI()
+    {
+        if (ammoText != null)
+        {
+            ammoText.text = currentAmmo + " / " + reserveAmmo;
         }
     }
 }

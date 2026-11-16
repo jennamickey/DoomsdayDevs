@@ -38,3 +38,4 @@
   12. resumes
   13. maybe regenerate health over time
   14. maybe have a database to save name and high score
+  15. maybe pause button
