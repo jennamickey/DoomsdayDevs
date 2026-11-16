@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3aedae2cb3d0e5841b968b5fe3789231, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3aedae2cb3d0e5841b968b5fe3789231, type: 3}
       propertyPath: m_LocalRotation.x
@@ -42,7 +42,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3aedae2cb3d0e5841b968b5fe3789231, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3aedae2cb3d0e5841b968b5fe3789231, type: 3}
       propertyPath: m_LocalRotation.z
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3aedae2cb3d0e5841b968b5fe3789231, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3aedae2cb3d0e5841b968b5fe3789231, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8428fa79e4e497e9cc502b252b57de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunController
+  muzzleFlash: {fileID: 0}
   damage: 35
   maxAmmo: 12
   reserveAmmo: 48
@@ -101,7 +102,7 @@ MonoBehaviour:
   isAutomatic: 0
   fireRate: 0.18
   ammoText: {fileID: 0}
-  fpsCam: {fileID: 0}
   hitLayers:
     serializedVersion: 2
     m_Bits: 51
+  fpsCam: {fileID: 0}
