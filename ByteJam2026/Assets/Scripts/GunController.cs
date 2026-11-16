@@ -9,6 +9,7 @@ public class GunController : MonoBehaviour
     public int damage = 25;
     public int maxAmmo = 30;
     public int reserveAmmo = 120;
+    public int maxReserveAmmo = 120;
     public float reloadTime = 1.5f;
     public bool isAutomatic = false;
     public float fireRate = 0.15f;
@@ -140,5 +141,13 @@ public class GunController : MonoBehaviour
         {
             ammoText.text = currentAmmo + " / " + reserveAmmo;
         }
+    }
+
+    public void RefillAmmo()
+    {
+        currentAmmo = maxAmmo;
+        reserveAmmo = maxReserveAmmo;
+
+        UpdateAmmoUI();
     }
 }

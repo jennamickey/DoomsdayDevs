@@ -9,6 +9,15 @@ public class VendingMachineAmmo : MonoBehaviour, IInteractable
     public void Interact()
     {
         Debug.Log("Attempting to purchase " + machineName);
+
+        GunController[] guns = FindObjectsOfType<GunController>();
+
+        foreach (GunController gun in guns)
+        {
+            gun.RefillAmmo();
+        }
+
+        Debug.Log("Max Ammo Purchased!");
     }
 
     public string GetPrompt()
