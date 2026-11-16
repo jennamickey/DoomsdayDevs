@@ -7,12 +7,13 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float Health;
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private float maxHealth = 100;
+    [SerializeField] private float regenerationLimit = 100;
     [SerializeField] private GameObject deathScreenUI;
 
     void Start()
     {
-        Health = 100;
-        Time.timeScale = 1f;
+        Health = maxHealth;
         UpdateHealthUI();
     }
 
@@ -24,6 +25,37 @@ public class PlayerHealth : MonoBehaviour
             Die();
         }
         UpdateHealthUI();
+    }
+
+    public bool IncreaseMaxHealth(float amount)
+    {
+        if (Health >= 200)
+        {
+            return false;
+        }
+
+        maxHealth += amount;
+
+        if (maxHealth > 250)
+        {
+            maxHealth = 250;
+        }
+
+        Health += amount;
+
+        if (Health > maxHealth)
+        {
+            Health = maxHealth;
+        }
+
+        if (Health >= 200)
+        {
+            Health = 200;
+        }
+
+        UpdateHealthUI();
+
+        return true;
     }
 
     void UpdateHealthUI()

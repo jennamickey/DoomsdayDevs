@@ -5310,6 +5310,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 916639896}
     m_Modifications:
+    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -5366,10 +5370,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Male Crawler
       objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
     m_RemovedGameObjects: []
@@ -5902,6 +5902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   Health: 100
   healthText: {fileID: 1795843232}
+  maxHealth: 100
+  regenerationLimit: 100
   deathScreenUI: {fileID: 2036137355}
 --- !u!114 &248664591
 MonoBehaviour:
@@ -9932,6 +9934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::VendingMachine
   machineName: Extra Health
   price: 1000
+  playerHealth: {fileID: 248664590}
 --- !u!4 &493741823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000010940606070, guid: fcbcdad4411dafb489c6994b483d02a6, type: 3}
@@ -33181,6 +33184,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 916639896}
     m_Modifications:
+    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -33237,10 +33244,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Male
       objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
     m_RemovedGameObjects: []
