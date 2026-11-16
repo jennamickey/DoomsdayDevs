@@ -2474,6 +2474,10 @@ MonoBehaviour:
   isAutomatic: 1
   fireRate: 0.12
   ammoText: {fileID: 645088523}
+  fpsCam: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!4 &96632088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013041734426, guid: d803e729730d97a4e89edf13b602b3f4, type: 3}
@@ -9821,9 +9825,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawner
   zombieTypes: {fileID: 839326370}
-  crawlerSpawnWeight: 0.75
   zombiePrefab: {fileID: 1845634719}
-  numberToSpawn: 2
+  crawlerSpawnWeight: 0.75
   spawnTerrain: {fileID: 724739299}
   padding: 1
 --- !u!1001 &477299109
@@ -11917,8 +11920,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 800, y: -400}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 780, y: -400}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &645088523
 MonoBehaviour:
@@ -11967,8 +11970,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 65
-  m_fontSizeBase: 65
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -13949,6 +13952,10 @@ MonoBehaviour:
   isAutomatic: 0
   fireRate: 0.25
   ammoText: {fileID: 645088523}
+  fpsCam: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!4 &774232118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013978381734, guid: fe9a19d4f0d796c40bf4fc6b69dd7b81, type: 3}
@@ -14729,6 +14736,10 @@ MonoBehaviour:
   isAutomatic: 1
   fireRate: 0.07
   ammoText: {fileID: 645088523}
+  fpsCam: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!1 &839326369
 GameObject:
   m_ObjectHideFlags: 0
@@ -15663,25 +15674,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &916639897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916639895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7716961a84558cc409fd9f670778ed02, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::RoundController
-  zombieSpawner: {fileID: 477155518}
-  zombieSpawners:
-  - {fileID: 477155518}
-  - {fileID: 1604902899}
-  - {fileID: 1097941982}
-  timeBetweenRounds: 10
-  zombiesLeftText: {fileID: 1475166205}
 --- !u!4 &916639896
 Transform:
   m_ObjectHideFlags: 0
@@ -15700,6 +15692,25 @@ Transform:
   - {fileID: 1097941981}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &916639897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916639895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7716961a84558cc409fd9f670778ed02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RoundController
+  zombieSpawner: {fileID: 477155518}
+  zombieSpawners:
+  - {fileID: 477155518}
+  - {fileID: 1604902899}
+  - {fileID: 1097941982}
+  timeBetweenRounds: 10
+  zombiesLeftText: {fileID: 1475166205}
 --- !u!4 &919377430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011066351628, guid: 36b4cee33c5a95b4fa7f0ae6bdb49564, type: 3}
@@ -17771,6 +17782,10 @@ MonoBehaviour:
   isAutomatic: 1
   fireRate: 0.09
   ammoText: {fileID: 645088523}
+  fpsCam: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!4 &1054060802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012065435610, guid: 99914c1bbcbb9244d8d61fe025c942d0, type: 3}
@@ -18464,9 +18479,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawner
   zombieTypes: {fileID: 839326370}
-  crawlerSpawnWeight: 0.75
   zombiePrefab: {fileID: 21529715}
-  numberToSpawn: 2
+  crawlerSpawnWeight: 0.75
   spawnTerrain: {fileID: 724739299}
   padding: 1
 --- !u!1001 &1098111203
@@ -26346,9 +26360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieSpawner
   zombieTypes: {fileID: 839326370}
-  crawlerSpawnWeight: 0.75
   zombiePrefab: {fileID: 746936972}
-  numberToSpawn: 2
+  crawlerSpawnWeight: 0.75
   spawnTerrain: {fileID: 724739299}
   padding: 1
 --- !u!4 &1604902900 stripped
@@ -27988,6 +28001,10 @@ MonoBehaviour:
   isAutomatic: 1
   fireRate: 0.14
   ammoText: {fileID: 645088523}
+  fpsCam: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!1001 &1773657048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31102,6 +31119,10 @@ MonoBehaviour:
   isAutomatic: 1
   fireRate: 0.17
   ammoText: {fileID: 645088523}
+  fpsCam: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!1001 &1934235871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31196,6 +31217,10 @@ MonoBehaviour:
   isAutomatic: 0
   fireRate: 0.18
   ammoText: {fileID: 645088523}
+  fpsCam: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!1001 &1946591425
 PrefabInstance:
   m_ObjectHideFlags: 0
