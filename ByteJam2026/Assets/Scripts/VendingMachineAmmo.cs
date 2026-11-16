@@ -10,14 +10,23 @@ public class VendingMachineAmmo : MonoBehaviour, IInteractable
     {
         Debug.Log("Attempting to purchase " + machineName);
 
-        GunController[] guns = FindObjectsOfType<GunController>();
-
-        foreach (GunController gun in guns)
+        if (GameManager.Instance == null)
         {
-            gun.RefillAmmo();
+            Debug.LogError("GameManager not found!");
+            return;
         }
 
-        Debug.Log("Max Ammo Purchased!");
+        if (GameManager.Instance.SpendPoints(price))
+        {
+            GunController[] guns = FindObjectsOfType<GunController>();
+
+            foreach (GunController gun in guns)
+            {
+                gun.RefillAmmo();
+            }
+
+            Debug.Log("Max Ammo Purchased!");
+        }
     }
 
     public string GetPrompt()

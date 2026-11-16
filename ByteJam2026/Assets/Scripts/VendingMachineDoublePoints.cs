@@ -8,7 +8,20 @@ public class VendingMachineDoublePoints : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Debug.Log("Attempting to purchase " + machineName);
+        if (GameManager.Instance == null) return;
+
+        if (GameManager.Instance.IsDoublePointsActive())
+        {
+            Debug.Log("Double Points Already Active!");
+            return;
+        }
+
+        if (GameManager.Instance.SpendPoints(price))
+        {
+            GameManager.Instance.ActivateDoublePoints();
+
+            Debug.Log("Purchased " + machineName);
+        }
     }
 
     public string GetPrompt()

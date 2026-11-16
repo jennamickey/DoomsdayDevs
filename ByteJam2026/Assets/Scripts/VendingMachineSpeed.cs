@@ -9,15 +9,30 @@ public class VendingMachineSpeed : MonoBehaviour, IInteractable
 
     public void Interact()
     {
+        if (GameManager.Instance == null)
+        {
+            Debug.LogError("GameManager not found!");
+            return;
+        }
+
+        if (playerMovement == null)
+        {
+            Debug.LogError("PlayerMovement not assigned!");
+            return;
+        }
+
         if (playerMovement.IsSpeedBoostActive())
         {
             Debug.Log("Speed Boost Already Active!");
             return;
         }
 
-        playerMovement.ActivateSpeedBoost();
+        if (GameManager.Instance.SpendPoints(price))
+        {
+            playerMovement.ActivateSpeedBoost();
 
-        Debug.Log("Purchased " + machineName);
+            Debug.Log("Purchased " + machineName);
+        }
     }
 
     public string GetPrompt()
