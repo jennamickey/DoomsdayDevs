@@ -1,9 +1,10 @@
-
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private Camera playerCamera;
+    [SerializeField] private InteractionUI interactionUI;
     [SerializeField] private float interactionDistance = 3f;
 
     private IInteractable currentInteractable;
@@ -19,7 +20,9 @@ public class PlayerInteraction : MonoBehaviour
 
             if (currentInteractable != null)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                interactionUI.ShowPrompt(currentInteractable.GetPrompt());
+
+                if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
                 {
                     currentInteractable.Interact();
                 }
@@ -29,5 +32,6 @@ public class PlayerInteraction : MonoBehaviour
         }
 
         currentInteractable = null;
+        interactionUI.HidePrompt();
     }
 }
