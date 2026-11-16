@@ -5,7 +5,7 @@ public class WorldWeaponPickup : MonoBehaviour, IInteractable
     [Header("Weapon Purchase Settings")]
     [SerializeField] private string weaponName = "SCAR";
     [SerializeField] private int price = 1500;
-    [SerializeField] private GameObject equippableGunPrefab; // Drag the Gun Prefab (with GunController) from Project folder
+    [SerializeField] private GameObject equippableGunPrefab;
 
     [Header("Optional Visual Spin")]
     [SerializeField] private bool rotateDisplay = true;
