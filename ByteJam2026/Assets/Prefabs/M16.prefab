@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d8428fa79e4e497e9cc502b252b57de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunController
+  muzzleFlash: {fileID: 0}
   damage: 40
   maxAmmo: 30
   reserveAmmo: 120
@@ -101,7 +102,7 @@ MonoBehaviour:
   isAutomatic: 1
   fireRate: 0.14
   ammoText: {fileID: 0}
-  fpsCam: {fileID: 0}
   hitLayers:
     serializedVersion: 2
     m_Bits: 51
+  fpsCam: {fileID: 0}

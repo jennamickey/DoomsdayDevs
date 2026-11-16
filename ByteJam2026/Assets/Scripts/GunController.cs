@@ -5,9 +5,6 @@ using TMPro;
 
 public class GunController : MonoBehaviour
 {
-    [Header("Effects")]
-    public ParticleSystem muzzleFlash;
-
     [Header("Gun Settings")]
     public int damage = 25;
     public int maxAmmo = 30;
@@ -134,11 +131,6 @@ public class GunController : MonoBehaviour
             }
 
             break;
-        }
-
-        if (muzzleFlash != null)
-        {
-            muzzleFlash.Play();
         }
     }
 
