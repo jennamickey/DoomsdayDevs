@@ -5731,7 +5731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1069760587102859022, guid: d14c20b25966d498daa188a2fcb3aaba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.56
+      value: 2.967
       objectReference: {fileID: 0}
     - target: {fileID: 1069760587102859022, guid: d14c20b25966d498daa188a2fcb3aaba, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5773,6 +5773,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 401767297977087412, guid: d14c20b25966d498daa188a2fcb3aaba, type: 3}
       insertIndex: -1
       addedObject: {fileID: 241591621}
+    - targetCorrespondingSourceObject: {fileID: 401767297977087412, guid: d14c20b25966d498daa188a2fcb3aaba, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 241591622}
   m_SourcePrefab: {fileID: 100100000, guid: d14c20b25966d498daa188a2fcb3aaba, type: 3}
 --- !u!4 &241591619 stripped
 Transform:
@@ -5801,6 +5804,27 @@ MonoBehaviour:
   equippableGunPrefab: {fileID: 401767297977087412, guid: d14c20b25966d498daa188a2fcb3aaba, type: 3}
   rotateDisplay: 0
   rotateSpeed: 45
+--- !u!65 &241591622
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241591620}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 2, z: 4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &245492148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11814,7 +11838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8664719478336967901, guid: 9d48be18b8d004ec9a4ff2a5c98fcecc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.94
+      value: 3.41
       objectReference: {fileID: 0}
     - target: {fileID: 8664719478336967901, guid: 9d48be18b8d004ec9a4ff2a5c98fcecc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24797,7 +24821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5684898016171519347, guid: 739e4c354b375487b9b78b5972fd91ee, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.46
+      value: 2.91
       objectReference: {fileID: 0}
     - target: {fileID: 5684898016171519347, guid: 739e4c354b375487b9b78b5972fd91ee, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24839,6 +24863,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5021232163975706569, guid: 739e4c354b375487b9b78b5972fd91ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1515476721}
+    - targetCorrespondingSourceObject: {fileID: 5021232163975706569, guid: 739e4c354b375487b9b78b5972fd91ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1515476722}
   m_SourcePrefab: {fileID: 100100000, guid: 739e4c354b375487b9b78b5972fd91ee, type: 3}
 --- !u!4 &1515476719 stripped
 Transform:
@@ -24867,6 +24894,27 @@ MonoBehaviour:
   equippableGunPrefab: {fileID: 5021232163975706569, guid: 739e4c354b375487b9b78b5972fd91ee, type: 3}
   rotateDisplay: 0
   rotateSpeed: 45
+--- !u!65 &1515476722
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515476720}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 2, z: 4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1521727553
 GameObject:
   m_ObjectHideFlags: 0
@@ -25776,7 +25824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8892587793124513427, guid: 36cfec9d776fe44d292c837e83dfad8f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.08
+      value: 2.464
       objectReference: {fileID: 0}
     - target: {fileID: 8892587793124513427, guid: 36cfec9d776fe44d292c837e83dfad8f, type: 3}
       propertyPath: m_LocalPosition.z
