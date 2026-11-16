@@ -26,6 +26,12 @@ public class VendingMachineDoublePoints : MonoBehaviour, IInteractable
 
     public string GetPrompt()
     {
+        if (GameManager.Instance != null &&
+            GameManager.Instance.IsDoublePointsActive())
+        {
+            return "Double Points Active";
+        }
+
         return "Press E to Buy " + machineName + " - " + price + " Points";
     }
 }
