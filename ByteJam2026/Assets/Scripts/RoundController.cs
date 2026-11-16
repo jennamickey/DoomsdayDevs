@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoundController : MonoBehaviour
@@ -107,11 +108,14 @@ public class RoundController : MonoBehaviour
 
     private IEnumerator StartNextRound()
     {
+        SoundManager.Instance.Stopzombies();
+        SoundManager.Instance.PlayRoundStart();
         UpdateZombieCounter();
         Debug.Log($"Round complete. Next round in {timeBetweenRounds} seconds.");
         yield return new WaitForSeconds(timeBetweenRounds);
 
         zombiesCount += 10;
         StartRound();
+        SoundManager.Instance.PlayZombieSounds(); 
     }
 }
