@@ -1,12 +1,12 @@
+
 using UnityEngine;
 using UnityEngine.AI;
 
 public class ZombieAI : MonoBehaviour
 {
-
     [Header("Movement")]
-    [SerializeField] private float walkSpeed = 1.5f;
     [SerializeField] private float runSpeed = 3.5f;
+    [SerializeField] private float speedVariation = 0.5f;
     [SerializeField] private float rotationSpeed = 8f;
 
     [Header("Player Detection")]
@@ -22,14 +22,19 @@ public class ZombieAI : MonoBehaviour
     [SerializeField] private float attackDamage = 100f;
     [SerializeField] private float attackCooldown = 1f;
 
-private float nextAttackTime;
+    private float nextAttackTime;
+    private float randomizedRunSpeed;
 
-    private Vector3 moveDirection;
-    private float stateTimer;
-    private UnityEngine.AI.NavMeshAgent agent;
+    private NavMeshAgent agent;
 
-    private void Awake(){
+    private void Awake()
+    {
         agent = GetComponent<NavMeshAgent>();
+
+        randomizedRunSpeed = Random.Range(
+            runSpeed - speedVariation,
+            runSpeed + speedVariation
+        );
     }
 
     private void Update()
@@ -57,7 +62,7 @@ private float nextAttackTime;
     private void Chase()
     {
         agent.isStopped = false;
-        agent.speed = runSpeed;
+        agent.speed = randomizedRunSpeed;
         agent.SetDestination(player.position);
 
         animator.SetBool("IsRunning", true);
@@ -92,3 +97,4 @@ private float nextAttackTime;
         }
     }
 }
+

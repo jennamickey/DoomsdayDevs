@@ -954,8 +954,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 0.5
-  runSpeed: 0.5
+  runSpeed: 2
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -6239,6 +6239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 916639896}
     m_Modifications:
+    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -6299,10 +6303,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
     m_RemovedGameObjects: []
@@ -15716,8 +15716,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 0.75
-  runSpeed: 0.75
+  runSpeed: 2
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -27442,8 +27442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 2.25
   runSpeed: 2.25
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -28313,8 +28313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 0.2
-  runSpeed: 0.2
+  runSpeed: 1
+  speedVariation: 0.5
   rotationSpeed: 2
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -34070,8 +34070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 1.25
-  runSpeed: 1.25
+  runSpeed: 2
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -34190,8 +34190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 1.5
-  runSpeed: 1.5
+  runSpeed: 2
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -35547,8 +35547,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 1.25
-  runSpeed: 1.25
+  runSpeed: 2
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -36223,8 +36223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 0.5
-  runSpeed: 0.5
+  runSpeed: 2
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -37260,8 +37260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9728a2d7fc3c7741b2560e05779fba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
-  walkSpeed: 0.3
-  runSpeed: 0.3
+  runSpeed: 2
+  speedVariation: 0.5
   rotationSpeed: 8
   player: {fileID: 248664587}
   detectionDistance: 5
@@ -38992,6 +38992,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 916639896}
     m_Modifications:
+    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     - target: {fileID: -8679921383154817045, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
@@ -39052,10 +39056,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: 90a0d1be49ff0334a8bdad128945698b, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 898aac7ce2367934486f9f8fd436c3f4, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: 95b58216e053b3243a095ccb4aacfe20, type: 3}
     m_RemovedGameObjects: []
